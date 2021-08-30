@@ -83,7 +83,7 @@ export function closest(element, nodes = [], until) {
   while (elementToCheck !== null && elementToCheck !== void 0 && elementToCheck !== until) {
     const { nodeType, nodeName } = elementToCheck;
 
-    if (nodeType === ELEMENT_NODE && (nodes.includes(nodeName) || nodes.includes(elementToCheck))) {
+    if (nodeType === ELEMENT_NODE && (nodes.includes(nodeName) || Array.isArray(nodes) && nodes.includes(elementToCheck))) {
       return elementToCheck;
     }
 
